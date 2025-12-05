@@ -1,0 +1,940 @@
+/* ============================================
+   Lasso.cs - Main Stylesheet
+   Lasso-inspired Design
+   ============================================ */
+
+/* Lasso Color Palette */
+:root {
+    --lasso-orange: #FF6A00;
+    --lasso-orange-dark: #E55A00;
+    --lasso-orange-light: #FF8533;
+    --lasso-red: #E31E24;
+    --lasso-black: #000000;
+    --lasso-gray-dark: #1a1a1a;
+    --lasso-gray: #666666;
+    --lasso-gray-light: #f5f5f5;
+    --lasso-green: #28a745;
+    --lasso-yellow: #ffc107;
+    --lasso-white: #ffffff;
+}
+
+/* Typography - Lasso uses clean, readable fonts */
+* {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Base Styles - Ensure all text is visible and readable */
+/* Flexbox layout for sticky footer */
+html {
+    height: 100%;
+}
+
+body {
+    color: var(--lasso-black);
+    background-color: #ffffff;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main content wrapper - grows to push footer down */
+.main-content {
+    flex: 1 0 auto;
+    width: 100%;
+    min-height: calc(100vh - 200px); /* Ensure minimum height for content area */
+    padding-bottom: 2rem; /* Add padding at bottom to prevent content from touching footer */
+}
+
+/* Headings - ensure visibility with proper sizing */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--lasso-black);
+    font-weight: 600;
+    line-height: 1.3;
+    margin-top: 0;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+
+/* Text elements - ensure visibility */
+p, span, label {
+    color: var(--lasso-black);
+    line-height: 1.6;
+}
+
+/* Ensure labels are always visible */
+label {
+    color: var(--lasso-black) !important;
+    font-weight: 500;
+}
+
+p {
+    margin: 0 0 1rem 0;
+}
+
+/* Form inputs - user-friendly styling */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea,
+select {
+    color: var(--lasso-black) !important;
+    background-color: #ffffff !important;
+    font-size: 16px;
+    line-height: 1.5;
+    width: 100%;
+}
+
+/* Ensure input placeholders are visible */
+input::placeholder,
+textarea::placeholder {
+    color: #9ca3af !important;
+    opacity: 1;
+}
+
+/* Remove !important from table cells to allow proper inheritance */
+
+/* Table cells - readable text */
+td, th {
+    color: var(--lasso-black);
+    font-size: 14px;
+}
+
+/* Allow white text in specific contexts - must come after general rules */
+.text-white {
+    color: #ffffff !important;
+}
+
+/* Hero section - white text for all elements */
+.hero-lasso h1, 
+.hero-lasso h2,
+.hero-lasso h3,
+.hero-lasso p, 
+.hero-lasso a,
+.hero-lasso span,
+.hero-lasso div,
+.hero-lasso * {
+    color: #ffffff !important;
+}
+
+.nav-lasso a, 
+.nav-link,
+.nav-lasso .text-white {
+    color: #ffffff !important;
+}
+
+/* Gray text utilities */
+.text-gray-600, .text-gray-700, .text-gray-800 {
+    color: var(--lasso-gray-dark) !important;
+}
+
+/* Container and layout improvements */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+/* Consistent spacing scale - 16px, 24px, 32px, 48px */
+.spacing-section {
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+.spacing-section-top {
+    margin-top: 48px;
+}
+
+.spacing-section-bottom {
+    margin-bottom: 48px;
+}
+
+/* Standardized spacing for homepage sections */
+.hero-spacing {
+    margin-bottom: 32px;
+}
+
+.section-spacing {
+    margin-top: 48px;
+    margin-bottom: 48px;
+}
+
+.section-spacing:first-of-type {
+    margin-top: 0;
+}
+
+/* Ensure proper spacing - removed automatic padding to prevent conflicts */
+/* Sections should use explicit spacing classes instead */
+section {
+    margin-bottom: 0; /* Remove default margin, use explicit classes */
+    padding: 0; /* Remove default padding, use explicit classes */
+}
+
+/* Better link visibility - Override Tailwind */
+a:not(.nav-link):not(.text-white):not(.hero-lasso *):not(.btn-lasso):not(.btn-lasso-secondary) {
+    color: var(--lasso-orange) !important;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:not(.nav-link):not(.text-white):not(.hero-lasso *):not(.btn-lasso):not(.btn-lasso-secondary):hover {
+    color: var(--lasso-orange-dark) !important;
+    text-decoration: underline;
+}
+
+/* Navigation Styles - Enhanced UX */
+.nav-lasso {
+    background-color: var(--lasso-orange) !important;
+    background: var(--lasso-orange) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+/* Lasso Action Buttons - User-friendly design */
+.btn-lasso {
+    background-color: var(--lasso-orange) !important;
+    background: var(--lasso-orange) !important;
+    color: #ffffff !important;
+    padding: 14px 28px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.3s ease !important;
+    border: none !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    box-shadow: 0 2px 4px rgba(255, 106, 0, 0.3) !important;
+}
+
+.btn-lasso:hover {
+    background-color: var(--lasso-orange-dark) !important;
+    background: var(--lasso-orange-dark) !important;
+    color: #ffffff !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(255, 106, 0, 0.4) !important;
+}
+
+.btn-lasso:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(255, 106, 0, 0.3);
+}
+
+.btn-lasso-secondary {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: var(--lasso-orange) !important;
+    border: 2px solid var(--lasso-orange) !important;
+    padding: 12px 24px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    font-size: 16px !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    display: inline-block !important;
+    text-align: center !important;
+    text-decoration: none !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+.btn-lasso-secondary:hover,
+a.btn-lasso-secondary:hover,
+button.btn-lasso-secondary:hover,
+nav .btn-lasso-secondary:hover,
+.register-btn-nav:hover {
+    background-color: var(--lasso-orange) !important;
+    background: var(--lasso-orange) !important;
+    color: #ffffff !important;
+    border-color: var(--lasso-orange) !important;
+    box-shadow: 0 2px 8px rgba(255, 106, 0, 0.3) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Ensure register button doesn't revert on hover - multiple specific selectors */
+.register-btn-nav {
+    background-color: #ffffff !important;
+    background: #ffffff !important;
+    color: #FF6A00 !important;
+    border: 2px solid #FF6A00 !important;
+}
+
+.register-btn-nav:hover,
+a.register-btn-nav:hover,
+nav .register-btn-nav:hover,
+nav a.register-btn-nav:hover {
+    background-color: #FF6A00 !important;
+    background: #FF6A00 !important;
+    color: #ffffff !important;
+    border-color: #FF6A00 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 8px rgba(255, 106, 0, 0.3) !important;
+}
+
+/* Override any Tailwind or conflicting styles */
+nav a.register-btn-nav:hover,
+nav .register-btn-nav:hover {
+    background-color: #FF6A00 !important;
+    background: #FF6A00 !important;
+    color: #ffffff !important;
+}
+
+.btn-lasso-secondary:active {
+    transform: translateY(0) !important;
+    box-shadow: 0 1px 4px rgba(255, 106, 0, 0.3) !important;
+}
+
+/* Hero Section */
+.hero-lasso {
+    background: linear-gradient(135deg, #FF6A00 0%, #FF8533 100%) !important;
+    background-color: var(--lasso-orange) !important;
+}
+
+.hero-button-secondary {
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    border: 2px solid #ffffff !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease !important;
+    padding: 14px 28px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+}
+
+/* Hero services button - use Lasso orange palette */
+.hero-services-btn {
+    background-color: var(--lasso-orange-light) !important;
+    background: var(--lasso-orange-light) !important;
+    color: #ffffff !important;
+    border: 2px solid var(--lasso-orange-light) !important;
+    padding: 14px 28px !important;
+    border-radius: 6px !important;
+    font-weight: 600 !important;
+    text-transform: uppercase !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 2px 4px rgba(255, 133, 51, 0.3) !important;
+}
+
+.hero-services-btn:hover,
+a.hero-services-btn:hover,
+.btn-lasso.hero-services-btn:hover {
+    background-color: var(--lasso-orange) !important;
+    background: var(--lasso-orange) !important;
+    color: #ffffff !important;
+    border-color: var(--lasso-orange) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 12px rgba(255, 106, 0, 0.4) !important;
+}
+
+.hero-button-secondary:hover,
+a.hero-button-secondary:hover,
+.hero-lasso .hero-button-secondary:hover,
+.hero-lasso .btn-lasso-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* Text Colors */
+.text-lasso-black {
+    color: var(--lasso-black) !important;
+}
+
+.text-lasso-gray {
+    color: var(--lasso-gray) !important;
+}
+
+.text-lasso-orange {
+    color: var(--lasso-orange) !important;
+}
+
+.text-lasso-red {
+    color: var(--lasso-red) !important;
+}
+
+.text-lasso-green {
+    color: var(--lasso-green) !important;
+}
+
+.text-lasso-yellow {
+    color: var(--lasso-yellow) !important;
+}
+
+/* Form Inputs - Enhanced user experience */
+.input-lasso {
+    color: var(--lasso-black);
+    background-color: #ffffff;
+    border: 2px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    width: 100%;
+}
+
+.input-lasso:hover {
+    border-color: #d1d5db;
+}
+
+.input-lasso:focus {
+    outline: none;
+    border-color: var(--lasso-orange);
+    box-shadow: 0 0 0 3px rgba(255, 106, 0, 0.1);
+}
+
+.input-lasso:disabled {
+    color: var(--lasso-gray);
+    background-color: var(--lasso-gray-light);
+    cursor: not-allowed;
+}
+
+.input-lasso::placeholder {
+    color: #9ca3af;
+}
+
+/* Alert Messages */
+.alert-success {
+    background-color: #efe;
+    border: 1px solid #c3e6cb;
+    color: #0a0;
+}
+
+.alert-error {
+    background-color: #fee;
+    border: 1px solid #f5c6cb;
+    color: #c00;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+    color: #0c5460;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+}
+
+/* Product/Service Cards - Enhanced design */
+.card-lasso {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 0; /* Remove default margin, use grid gap instead */
+}
+
+/* Ensure product/service cards align consistently in grids */
+.grid > div {
+    display: flex;
+    flex-direction: column;
+}
+
+.grid > div > a,
+.grid > div > .card-lasso {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+}
+
+/* Ensure card content fills available space and aligns properly */
+.grid > div .bg-white.rounded-lg {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Ensure product/service card images maintain aspect ratio */
+.grid > div .bg-white .h-48 {
+    flex-shrink: 0;
+    min-height: 192px;
+}
+
+/* Ensure card content area grows to fill space */
+.grid > div .bg-white > div:last-child,
+.grid > div .bg-white .p-4 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-lasso:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    transform: translateY(-4px);
+    border-color: var(--lasso-orange-light);
+}
+
+/* Status Badges */
+.badge-success {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.badge-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.badge-warning {
+    background-color: #fff3cd;
+    color: #856404;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.badge-info {
+    background-color: #d1ecf1;
+    color: #0c5460;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.badge-primary {
+    background-color: #cfe2ff;
+    color: #084298;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+/* Role Badges */
+.badge-admin {
+    background-color: #e2d9f3;
+    color: #6f42c1;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.badge-seller {
+    background-color: #cfe2ff;
+    color: #0d6efd;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+.badge-buyer {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+}
+
+/* Link Styles */
+.link-lasso {
+    color: var(--lasso-orange);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.link-lasso:hover {
+    color: var(--lasso-orange-dark);
+}
+
+/* Mobile Menu */
+@media (max-width: 640px) {
+    .mobile-menu {
+        display: none;
+    }
+    
+    .mobile-menu.active {
+        display: block;
+    }
+}
+
+/* Table Styles */
+.table-lasso {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-lasso thead {
+    background-color: #f3f4f6;
+}
+
+.table-lasso th {
+    padding: 16px 12px;
+    text-align: left;
+    font-weight: 600;
+    color: var(--lasso-gray);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+}
+
+.table-lasso td {
+    padding: 16px 12px;
+    color: var(--lasso-black);
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.table-lasso tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/* Price Display */
+.price-lasso {
+    color: var(--lasso-orange) !important;
+    font-weight: bold !important;
+    font-size: 1.25rem !important;
+}
+
+/* Stock Status */
+.stock-in {
+    color: var(--lasso-green);
+}
+
+.stock-out {
+    color: var(--lasso-red);
+}
+
+.stock-low {
+    color: var(--lasso-yellow);
+}
+
+/* Dashboard Cards - User-friendly design */
+.dashboard-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 32px;
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+    text-decoration: none;
+    display: block;
+    color: inherit;
+    margin-bottom: 24px; /* Use consistent 24px spacing */
+}
+
+.dashboard-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    border-color: var(--lasso-orange-light);
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Statistics Display */
+.stat-value {
+    font-size: 2rem !important;
+    font-weight: bold !important;
+    color: var(--lasso-orange) !important;
+}
+
+.stat-label {
+    color: var(--lasso-gray) !important;
+    margin-bottom: 16px; /* Use consistent 16px spacing */
+    font-weight: 500;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+    .stat-value {
+        font-size: 1.5rem;
+    }
+    
+    body {
+        font-size: 14px;
+    }
+    
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.75rem; }
+    h3 { font-size: 1.5rem; }
+    
+    .btn-lasso,
+    .btn-lasso-secondary {
+        padding: 12px 20px;
+        font-size: 14px;
+    }
+    
+    .input-lasso {
+        padding: 10px 14px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+}
+
+/* Accessibility improvements */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: 2px solid var(--lasso-orange);
+    outline-offset: 2px;
+}
+
+/* Loading states */
+.btn-lasso:disabled,
+.btn-lasso-secondary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Better link visibility */
+a:not(.nav-link):not(.text-white):not(.hero-lasso *) {
+    color: var(--lasso-orange);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:not(.nav-link):not(.text-white):not(.hero-lasso *):hover {
+    color: var(--lasso-orange-dark);
+    text-decoration: underline;
+}
+
+/* Override Tailwind's default colors with Lasso palette */
+.bg-orange-500,
+.bg-orange-600,
+.bg-orange-400 {
+    background-color: var(--lasso-orange) !important;
+}
+
+.text-orange-500,
+.text-orange-600,
+.text-orange-400 {
+    color: var(--lasso-orange) !important;
+}
+
+.border-orange-500,
+.border-orange-600 {
+    border-color: var(--lasso-orange) !important;
+}
+
+/* Force Lasso colors on common Tailwind classes */
+.bg-white {
+    background-color: #ffffff !important;
+}
+
+.text-black {
+    color: var(--lasso-black) !important;
+}
+
+/* Footer Styles - Ensure proper spacing and visibility */
+footer {
+    flex-shrink: 0;
+    width: 100%;
+    margin-top: auto;
+    background-color: #1f2937 !important;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+footer a {
+    color: #d1d5db !important;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: #ffffff !important;
+    text-decoration: underline;
+}
+
+footer h3,
+footer h4 {
+    color: #ffffff !important;
+}
+
+footer p {
+    color: #d1d5db !important;
+}
+
+footer .text-gray-400 {
+    color: #d1d5db !important;
+}
+
+/* Ensure footer text is always visible */
+footer * {
+    color: inherit;
+}
+
+/* Additional text visibility fixes */
+/* Ensure all text in cards and containers is visible */
+.card-lasso h3,
+.card-lasso h4,
+.card-lasso p,
+.card-lasso span {
+    color: var(--lasso-black) !important;
+}
+
+/* Ensure table text is visible */
+.table-lasso td,
+.table-lasso th {
+    color: var(--lasso-black) !important;
+}
+
+/* Ensure alert text is visible */
+.alert-success,
+.alert-error,
+.alert-info,
+.alert-warning {
+    color: inherit !important;
+}
+
+.alert-success {
+    color: #155724 !important;
+}
+
+.alert-error {
+    color: #721c24 !important;
+}
+
+.alert-info {
+    color: #0c5460 !important;
+}
+
+.alert-warning {
+    color: #856404 !important;
+}
+
+/* Ensure no text is hidden by z-index or positioning */
+/* Only reset z-index for elements that might have conflicting values */
+body > * {
+    position: relative;
+}
+
+/* Ensure navigation and footer are properly layered */
+nav {
+    position: relative;
+    z-index: 100;
+}
+
+footer {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-lasso {
+    position: relative;
+    z-index: 1;
+}
+
+/* Ensure proper contrast for gray text on white backgrounds */
+.text-gray-400,
+.text-gray-500,
+.text-gray-600 {
+    color: #6b7280 !important;
+}
+
+.text-gray-700,
+.text-gray-800 {
+    color: #374151 !important;
+}
+
+/* Print Styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: white;
+    }
+    
+    .btn-lazada,
+    .btn-lazada-secondary {
+        display: none;
+    }
+}
+
+/* Order Status Badges */
+.order-status-badge {
+    text-transform: capitalize;
+}
+
+.status-pending {
+    background-color: #fef3c7 !important;
+    color: #92400e !important;
+}
+
+.status-preparing {
+    background-color: #dbeafe !important;
+    color: #1e40af !important;
+}
+
+.status-out-for-delivery {
+    background-color: #e0e7ff !important;
+    color: #3730a3 !important;
+}
+
+.status-delivered {
+    background-color: #d1fae5 !important;
+    color: #065f46 !important;
+}
+
+.status-cancelled {
+    background-color: #fee2e2 !important;
+    color: #991b1b !important;
+}
+
+/* Order Tracking Timeline */
+.order-timeline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.order-timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.order-timeline-connector {
+    flex: 1;
+    height: 2px;
+    margin: 0 8px;
+}
+
